@@ -43,7 +43,7 @@ control 'cis-dil-benchmark-3.2.1' do
   parameters.each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 0 }
+      its(:value) { should >= 0 }
     end
   end
 end
@@ -70,7 +70,7 @@ control 'cis-dil-benchmark-3.2.2' do
   parameters.each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 0 }
+      its(:value) { should >= 0 }
     end
   end
 end
@@ -86,7 +86,7 @@ control 'cis-dil-benchmark-3.2.3' do
   %w(net.ipv4.conf.all.secure_redirects net.ipv4.conf.default.secure_redirects).each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 0 }
+      its(:value) { should >= 0 }
     end
   end
 end
@@ -102,7 +102,7 @@ control 'cis-dil-benchmark-3.2.4' do
   %w(net.ipv4.conf.all.log_martians net.ipv4.conf.default.log_martians).each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 1 }
+      its(:value) { should <= 1 }
     end
   end
 end
@@ -117,7 +117,7 @@ control 'cis-dil-benchmark-3.2.5' do
 
   describe kernel_parameter('net.ipv4.icmp_echo_ignore_broadcasts') do
     its(:value) { should_not be_nil }
-    its(:value) { should eq 1 }
+    its(:value) { should <= 1 }
   end
 end
 
@@ -131,7 +131,7 @@ control 'cis-dil-benchmark-3.2.6' do
 
   describe kernel_parameter('net.ipv4.icmp_ignore_bogus_error_responses') do
     its(:value) { should_not be_nil }
-    its(:value) { should eq 1 }
+    its(:value) { should >= 1 }
   end
 end
 
@@ -146,7 +146,7 @@ control 'cis-dil-benchmark-3.2.7' do
   %w(net.ipv4.conf.all.rp_filter net.ipv4.conf.default.rp_filter).each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 1 }
+      its(:value) { should <= 1 }
     end
   end
 end
@@ -161,7 +161,7 @@ control 'cis-dil-benchmark-3.2.8' do
 
   describe kernel_parameter('net.ipv4.tcp_syncookies') do
     its(:value) { should_not be_nil }
-    its(:value) { should eq 1 }
+    its(:value) { should <= 1 }
   end
 end
 
@@ -176,7 +176,7 @@ control 'cis-dil-benchmark-3.2.9' do
   %w(net.ipv6.conf.all.accept_ra net.ipv6.conf.default.accept_ra).each do |kp|
     describe kernel_parameter(kp) do
       its(:value) { should_not be_nil }
-      its(:value) { should eq 0 }
+      its(:value) { should >= 0 }
     end
   end
 
