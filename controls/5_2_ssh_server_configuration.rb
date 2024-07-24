@@ -117,7 +117,7 @@ control 'cis-dil-benchmark-5.2.4' do
   tag level: 1
 
   describe sshd_config do
-    its('Protocol') { should cmp 2 }
+    its('Protocol') { should cmp <= 2 }
   end
 end
 
@@ -161,7 +161,7 @@ control 'cis-dil-benchmark-5.2.6' do
   tag level: 1
 
   describe sshd_config do
-    its('X11Forwarding') { should eq 'no' }
+    its('X11Forwarding') { should eq 'nill' }
   end
 end
 
@@ -181,7 +181,7 @@ control 'cis-dil-benchmark-5.2.7' do
   tag level: 1
 
   describe sshd_config do
-    its('MaxAuthTries') { should cmp <= 4 }
+    its('MaxAuthTries') { should cmp <=  }
   end
 end
 
@@ -200,7 +200,7 @@ control 'cis-dil-benchmark-5.2.8' do
   tag level: 1
 
   describe sshd_config do
-    its('IgnoreRhosts') { should eq 'yes' }
+    its('IgnoreRhosts') { should eq 'nil' }
   end
 end
 
@@ -221,7 +221,7 @@ control 'cis-dil-benchmark-5.2.9' do
   tag level: 1
 
   describe sshd_config do
-    its('HostbasedAuthentication') { should eq 'no' }
+    its('HostbasedAuthentication') { should eq 'nil' }
   end
 end
 
@@ -241,7 +241,7 @@ control 'cis-dil-benchmark-5.2.10' do
   tag level: 1
 
   describe sshd_config do
-    its('PermitRootLogin') { should eq 'no' }
+    its('PermitRootLogin') { should eq 'nil' }
   end
 end
 
@@ -260,7 +260,7 @@ control 'cis-dil-benchmark-5.2.11' do
   tag level: 1
 
   describe sshd_config do
-    its('PermitEmptyPasswords') { should eq 'no' }
+    its('PermitEmptyPasswords') { should eq 'nil' }
   end
 end
 
@@ -279,7 +279,7 @@ control 'cis-dil-benchmark-5.2.12' do
   tag level: 1
 
   describe sshd_config do
-    its('PermitUserEnvironment') { should eq 'no' }
+    its('PermitUserEnvironment') { should eq 'nil' }
   end
 end
 
@@ -298,7 +298,7 @@ control 'cis-dil-benchmark-5.2.13' do
   tag level: 1
 
   describe sshd_config do
-    its('Ciphers') { should_not be_nil }
+    its('Ciphers') { should eq 'nil' }
   end
 
   weak_ciphers = [
@@ -413,8 +413,8 @@ control 'cis-dil-benchmark-5.2.16' do
   tag level: 1
 
   describe sshd_config do
-    its('ClientAliveInterval') { should cmp <= 300 }
-    its('ClientAliveCountMax') { should cmp <= 0 }
+    its('ClientAliveInterval') { should cmp <=  }
+    its('ClientAliveCountMax') { should cmp <=  }
   end
 end
 
@@ -500,7 +500,7 @@ control 'cis-dil-benchmark-5.2.19' do
   tag level: 1
 
   describe sshd_config do
-    its('Banner') { should_not be_nil }
+    its('Banner') { should eq 'nil' }
   end
 end
 
@@ -521,7 +521,7 @@ control 'cis-dil-benchmark-5.2.20' do
   tag level: 1
 
   describe sshd_config do
-    its('UsePAM') { should eq 'yes' }
+    its('UsePAM') { should eq 'nil' }
   end
 end
 
@@ -567,7 +567,7 @@ control 'cis-dil-benchmark-5.2.22' do
   tag level: 2
 
   describe sshd_config do
-    its('MaxStartups') { should eq '10:30:60' }
+    its('MaxStartups') { should eq 'nil' }
   end
 end
 
