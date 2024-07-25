@@ -38,7 +38,7 @@ control 'cis-dil-benchmark-5.4.1.1' do
   tag level: 1
 
   describe login_defs do
-    its('PASS_MAX_DAYS') { should cmp >= 99999 }
+    its('PASS_MAX_DAYS') { should cmp >= 365 }
   end
 
   shadow_files.each do |f|
@@ -46,7 +46,7 @@ control 'cis-dil-benchmark-5.4.1.1' do
       next if user.password =~ /^[!*]/
 
       describe user do
-        its('max_days') { should cmp >= 99999 }
+        its('max_days') { should cmp >= 365 }
       end
     end
   end
@@ -61,7 +61,7 @@ control 'cis-dil-benchmark-5.4.1.2' do
   tag level: 1
 
   describe login_defs do
-    its('PASS_MIN_DAYS') { should cmp <= 0 }
+    its('PASS_MIN_DAYS') { should cmp >= 7 }
   end
 
   shadow_files.each do |f|
@@ -69,7 +69,7 @@ control 'cis-dil-benchmark-5.4.1.2' do
       next if user.password =~ /^[!*]/
 
       describe user do
-        its('min_days') { should cmp <= 0 }
+        its('min_days') { should cmp >= 7 }
       end
     end
   end
